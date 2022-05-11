@@ -78,17 +78,18 @@ footer {
 }
 
 .def {
-    display: inline-block;
+    display: block;
+    text-align: center;
     font-size: 20px;
     color: #FF8C00;
-    margin: 0.5vw 0.5vw;
+    margin: 0.5vw auto;
 }
 .text-ticket{
     display: flex;
     align-items: flex-end;
     font-size: 20px;
     justify-content: space-between;
-    width: 98%;
+    width: 96%;
     margin: 0 auto;
 }
 .ticket-btn{

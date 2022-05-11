@@ -64,20 +64,6 @@ function showRegistr() {
             return false;
         }
         arr.push(email);
-        let telephone = document.getElementsByName("Tel")[0].value;
-        while (charIndex < 18) {
-
-            if (telephone.charAt(charIndex) == '_') {
-
-                style_input.style.border = '2px solid red';
-                check = 1;
-            } else {
-                style_input.style.border = '2px solid white';
-                check = 0;
-            }
-            charIndex++;
-        }
-        arr.push(telephone);
         let password = document.getElementsByName("Password")[0].value;
         arr.push(password);
         for (let elem = 0; elem < arr.length; elem++) {
@@ -96,20 +82,20 @@ function showRegistr() {
         if (check == 0) {
             modalWin.style.display = 'none';
             console.log(arr);
-            let registerForm = new FormData(document.getElementById('form2'));
-            fetch('/register.php', {
-                    method: 'POST',
-                    body: form2
-                })
-                .then(response => response.json())
-                .then((result) => {
-                    if (result.errors) {
-                        //вывод ошибок валидации на форму
-                    } else {
-                        //успешная регистрация, обновляем страницу
-                    }
-                })
-                .catch(error => console.log(error));
+            // let registerForm = new FormData(document.getElementById('form2'));
+            // fetch('/register.php', {
+            //         method: 'POST',
+            //         body: form2
+            //     })
+            //     .then(response => response.json())
+            //     .then((result) => {
+            //         if (result.errors) {
+            //             //вывод ошибок валидации на форму
+            //         } else {
+            //             //успешная регистрация, обновляем страницу
+            //         }
+            //     })
+            //     .catch(error => console.log(error));
             document.getElementById("pw1").value = "";
             document.getElementById("pw2").value = "";
             let ptr = document.getElementsByClassName("test");
@@ -134,18 +120,7 @@ function showRegistr() {
     }
 
 }
-let TelValid = document.querySelectorAll('input[type = "tel"]');
-let im = new Inputmask('+7 (999) 999-99-99');
-im.mask(TelValid);
 
-function validateEmail(form_id, email) {
-    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    var address = document.forms[form_id].elements[email].value;
-    if (reg.test(address) == false) {
-        alert('Введите корректный e-mail');
-        return false;
-    }
-}
 let x = 0;
 checkBtn.onclick = function() {
     let checkPoint = document.getElementById('Icheck');

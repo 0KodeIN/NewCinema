@@ -30,19 +30,14 @@
             <input type="submit" value="Войти" class='validateBtn'>
         </div>
 
-        <a href="#" class="forget" onclick="showRegistr()">Регистрация</a>
+        <a  class="forget" onclick="showRegistr()">Регистрация</a>
     </div>
-    <form class="form" id="form2" action="register.php" method="post">
+    <form class="form" id="form2"  method="post">
+        @csrf
         <h1>Регистрация</h1>
         <a class="close" id="exit_reg"></a>
         <div class="input-form">
             <input type="text" class="test" placeholder="Имя" name="Name" id="name-input">
-        </div>
-        <div class="input-form">
-            <input type="email" class="test" data-validate-field="email" placeholder="Email" name="Email" id="email-input">
-        </div>
-        <div class="input-form">
-            <input type="tel" class="test" placeholder="Телефон" name="Tel" id="tel-input">
         </div>
         <div class="input-form">
             <input type="password" class="test" placeholder="Пароль" name="Password" id="pw1">
@@ -64,5 +59,6 @@
 <footer>
 </footer>
 <script src="js/script.js"></script>
+<script src="js/inputmask.min.js"></script>
 </body>
 </html>
