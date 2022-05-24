@@ -1,0 +1,7 @@
+<?php
+dd($request->all());
+
+
+
+
+?>

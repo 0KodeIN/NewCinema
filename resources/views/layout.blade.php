@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/">
     <link href="/css/main.css" rel="stylesheet"> 
-    <title>Document</title>
+    <title>New Cinema</title>
 </head>
 <body>
     

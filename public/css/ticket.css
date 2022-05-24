@@ -1,0 +1,26 @@
+.ticket-table{
+    width: 200px;
+    margin: 0 auto;
+}
+.ticket-tr{
+    width: 1.5vw;
+    margin: 2vw 2vw;
+}
+.table-flex{
+    display: flex;
+}
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
+.img-ticket{
+  display: block;
+  height: 5rem;
+  margin: 0 auto;
+}
+.monik{
+    text-align: center;
+    padding-bottom: 20px;
+}

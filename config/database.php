@@ -68,7 +68,7 @@ return [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5433'),
+            'port' => env('DB_PORT', '5434'),
             'database' => env('DB_DATABASE', 'cinema_db'),
             'username' => env('DB_USERNAME', 'postgres'),
             'password' => env('DB_PASSWORD', 'zxc'),
