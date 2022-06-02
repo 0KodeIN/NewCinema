@@ -47,7 +47,8 @@ if(DB::connection()) {
     </header>
     <p class="green">Свободно</p>
     <p class="red">Занято</p>
-    <img class="img-ticket" src="img/monik.png" alt="" >
+    {{-- <img class="img-ticket" src="img/monik.png" alt="" > --}}
+    <div class="dug"></div>
     <p class="monik">Экран</p>
     <div class="ticket-table">
         
@@ -71,14 +72,12 @@ if(DB::connection()) {
         </table>
         <?}?>
     </div>
-    <div class="buy">
-        <input type="number">
-        <a href="" class="ticket-btn">Купить</a>
-    </div>
+    <form class="buy" action="action" method="get">
+        <input type="number" style = " display: none"name="session_id" value="<?echo $id;?>" readonly>
+        <p>Место </p> <input type="number" name="number">
+        <input type="submit" value="Купить" class='validateBtn'>
+    </form>
 
-
-    {{$id}}
-    <?php echo $id;?>
 <footer>
 </footer>
 <script src="js/script.js"></script>

@@ -2,13 +2,12 @@
 @section('content')
 <?
 if(DB::connection()) {
-    echo 'connection';
     $result = DB::select('select * from movie');
     // DB::table('dispatcher')->insert(
     // ['dispatcher_id' => 102, 'login' => 'admin2', 'password' => 'qwe586']
     // );
     foreach ($result as $res) {
-    echo  "/img/$res->film_photo ";
+
     }
 }
 ?>

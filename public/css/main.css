@@ -157,7 +157,7 @@ i.check {
     left: 50%;
     transform: translate(-50%, -50%);
     background: black;
-    display: none;
+    display: block;
     z-index: 2;
 }
 
@@ -383,8 +383,57 @@ hr {
 a {
     text-decoration: none;
     color: black;
+    display: block;
 }
 
 .detail_button {
     color: #FF8C00;
+}
+.admin-form{
+    margin: 1vw 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+}
+.admin{
+    display: block;
+    margin-left: 2vw;
+    margin-top: 2vw;
+}
+.admin-p{
+    margin-left: 1vw;
+}
+.admin-text{
+    color: #FF8C00;
+    margin-left: 1vw;
+}
+.buy{
+    margin: 1vw 1vw;
+    display: block;
+    width: 100px;
+}
+.delete-form{
+    margin: 1vw 1vw;
+    display: flex;
+}
+.delete-p{
+    margin: 0 1vw;
+}
+.navigation-root{
+    width: 30vw;
+    justify-content: space-between;
+    margin: 0 2vw;
+    display: flex;
+}
+.root-p{
+    color: #FF8C00;
+}
+.dug{
+    width: 150px;
+    height: 40px;
+    border-radius:  80px 80px  0 0;
+    border-top: 5px solid green;
+    border-left: 5px solid green;
+    border-right: 5px solid green;
+    margin: 0 auto;
 }

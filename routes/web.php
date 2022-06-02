@@ -21,6 +21,33 @@ use Illuminate\Http\Request;
 Route::get('/test', function () {
     return view('welcome');
 });
+Route::get('/action', function () {
+    return view('action');
+});
+Route::post('/create_film', function () {
+    return view('create_movie');
+});
+Route::post('/create_session', function () {
+    return view('create_session');
+});
+Route::post('/download', function () {
+    return view('download');
+});
+Route::post('/create_ticket', function () {
+    return view('create_ticket');
+});
+Route::get('/film', function () {
+    return view('delete-film');
+});
+Route::get('/session', function () {
+    return view('delete-session');
+});
+Route::get('/ticket', function () {
+    return view('ticket');
+});
+Route::get('/ticket-d', function () {
+    return view('delete-ticket');
+});
 Route::get('/', function () {
     return view('home-page');
 });
@@ -40,12 +67,24 @@ Route::get('/detail/{id}/', function ($id) {
 Route::get('/ticket/{id}/', function ($id) {
     return view('ticket-page', compact('id'));
 });
+Route::get('/movie', function () {
+    return view('movie');
+});
+Route::get('/session', function () {
+    return view('session');
+});
+// Route::post('/ticket/{id}/buy', 'App\Http\Controllers\Register@ticket', function($id){
+//     return view()
+// });
+// Route::post('ticket/{id}/', 'App\Http\Controllers\Register@ticket');
 // Route::get('/admin/auth', function (Request $request) {
 //     $name = $request->input('name');
 //     echo $name;
 // });
 Route::post('/admin/vhod', 'App\Http\Controllers\Register@edit');
 Route::get('/admin/vhod', 'App\Http\Controllers\Register@edit');
+Route::get('/admin/vhod/root', 'App\Http\Controllers\Register@show');
+Route::get('/admin/vhod/root/report', 'App\Http\Controllers\Report@get_report');
 // Route::prefix('admin')->group(function () {
 //     Route::resource('crud', CrudController::class);
 // });
