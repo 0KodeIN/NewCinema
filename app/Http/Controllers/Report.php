@@ -13,9 +13,10 @@ class Report extends Controller
     public function get_report() {
 
         if(DB::connection()) {
-                $result = DB::select('select * from session, movie 
-                where movie.id_film = session.id_film
-                order by movie.id_film');
+                // $result = DB::select('select * from session, movie 
+                // where movie.id_film = session.id_film
+                // order by movie.id_film');
+                $result = DB::select('select * from select_report');
                 $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('template.xlsx');
                 $worksheet = $spreadsheet->getActiveSheet();
                 $inp = 2;

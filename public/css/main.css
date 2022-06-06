@@ -71,11 +71,26 @@ footer {
     width: 5vw;
     height: 30px;
     border-radius: 20px;
-    margin: 35px 35px;
+    margin: 35px 20px;
     cursor: pointer;
     font-size: 24px;
     /* user-select: none */
 }
+.out {
+    color: #FF8C00;
+    width: 5vw;
+    height: 30px;
+    border-radius: 20px;
+    margin: 35px 1242px;
+    cursor: pointer;
+    font-size: 24px;
+    /* user-select: none */
+}
+.vhod{
+    display: flex;
+}
+
+
 
 .def {
     display: block;
@@ -418,6 +433,20 @@ a {
 }
 .delete-p{
     margin: 0 1vw;
+}
+.delete-btn{
+    font-size: 18px;
+    background-color: orange;
+    width: 80px;
+    border: 0;
+    margin-left: 1vw;
+}
+.update-btn{
+    font-size: 18px;
+    background-color: orange;
+    width: 140px;
+    border: 0;
+    margin-left: 1vw;
 }
 .navigation-root{
     width: 30vw;

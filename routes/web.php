@@ -39,7 +39,7 @@ Route::post('/create_ticket', function () {
 Route::get('/film', function () {
     return view('delete-film');
 });
-Route::get('/session', function () {
+Route::get('/del-session', function () {
     return view('delete-session');
 });
 Route::get('/ticket', function () {
@@ -53,6 +53,9 @@ Route::get('/', function () {
 });
 Route::get('/admin', function () {
     return view('admin-page');
+});
+Route::get('/ticket-bron', function () {
+    return view('ticket-bron');
 });
 
 // Route::post('/admin', function () {
@@ -72,6 +75,15 @@ Route::get('/movie', function () {
 });
 Route::get('/session', function () {
     return view('session');
+});
+Route::get('/admin/panel', function (Request $request) {
+    //$value = $request->session()->get('admin');
+    if(!($value = $request->session()->get('admin'))){
+        return view('admin-page');
+    }
+    else{
+        return view('auth-page');
+    }    
 });
 // Route::post('/ticket/{id}/buy', 'App\Http\Controllers\Register@ticket', function($id){
 //     return view()

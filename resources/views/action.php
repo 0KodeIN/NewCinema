@@ -75,8 +75,8 @@ if (file_exists($result_img)) {
     exit;
 }
 imagedestroy($image);
-// header("Location: {$_SERVER['HTTP_REFERER']}");
-// exit();
 ?>
-
+<script>
+window.location.reload();  
+</script>
 

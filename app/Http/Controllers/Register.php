@@ -11,32 +11,38 @@ class Register extends Controller
 
         $name = $request->input('Name');
         $psw = $request->input('Password');
+
+        //dd(session()->all());
         if($name == ''){
+            return view('admin-page');
+        }
+        if($psw == ''){
             return view('admin-page');
         }
         $nl = 0;
         if(DB::connection()) {
                 $result = DB::table('dispatcher')
                         ->select('dispatcher_id', 'login', 'password')
-                        ->where('password', '=', $psw)
                         ->where('login', '=', $name)
                         ->get();
 
                 foreach ($result as $res) {
                     echo $res->login;
-                    echo $res->password;
+                    $new_hash = $res->password;
                     $nl = $res->password;
                 }
                 
             
         }
-        if($nl != $psw){
-            echo "Ошибка авторизации.";
-            sleep(2);
-            return view('admin-page');
+        if(password_verify($psw, $new_hash)){
+            session(['admin' => $name]);
+            session()->save();
+            //session()->flush();
+            header("Location: http://localhost/admin/panel");
+            exit( );
         }
         else{
-            return view('auth-page');
+            return view('admin-page');
         } 
     }
     public function show() {

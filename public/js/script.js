@@ -28,6 +28,10 @@ function showEnter() {
         return false;
     };
 }
+function formPost(id){
+    const form_post = document.getElementById('number_id');
+    form_post.value = id;
+}
 
 function regulate() {
 

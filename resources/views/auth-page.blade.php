@@ -1,3 +1,10 @@
+<?
+$value = session()->get('admin');
+if($value != 'Kodein'){
+    header("Location: /localhost/admin");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -13,19 +20,28 @@
     <header>
         <div class="navig">
             <h1 class="head-text">New cinema</h1>
-            <a href="{{url('/admin/vhod/root')}}" class="entry" >Admin</a>
+            <div class="vhod">
+                <a href="{{url('/admin/vhod/root')}}" class="entry" >Admin</a>
+                <a href="{{url('/admin')}}" class="entry" >Выход</a>
+            </div>            
         </div>
     </header>   
     <hr>
     <?
+    // session()->flush();
+    // $value = session()->get('admin');
+    // if(!($value = session()->get('admin'))){
+    //     echo 'error';
+    // }
+    // if($ses!='Kodein'){
+    //     header("Location: http://localhost/admin/panel");
+    // }
+    // dd(session()->all());
+    // dd($ses);
+    //echo $value;
     if(DB::connection()) {
-    echo 'connection';
     $result = DB::select('select * from movie');
-    // DB::table('dispatcher')->insert(
-    // ['dispatcher_id' => 102, 'login' => 'admin2', 'password' => 'qwe586']
-    // );
     foreach ($result as $res) {
-    echo  "/img/$res->film_photo ";
     }
     }
     ?>

@@ -31,9 +31,17 @@ if(DB::connection()) {
     // DB::table('dispatcher')->insert(
     // ['dispatcher_id' => 102, 'login' => 'admin2', 'password' => 'qwe586']
     // );
+    $hall = DB::table('session')
+            ->join('hall', 'hall.hall_id', '=', 'session.hall_id')
+            ->select('hall.hall_number')
+            ->where('session.session_id', '=', $id)
+            ->get();
     foreach ($result as $res) {
         $arr[$bool] = $res->place_number;
         $bool++;
+    }
+    foreach ($hall as $h) {
+        $hall_number = $h->hall_number;
     }
 }
 ?>
@@ -60,22 +68,23 @@ if(DB::connection()) {
                     $check = 1;
                 }
                 if($check == 1){ ?>
-                    <td class="ticket-tr" id=""><p class="red"><?echo $table; $table++; $check = 0;?></p></td>
+                    <td class="ticket-tr" id=""><a class="red"><?echo $table; $table++; $check = 0;?></p></td>
                     <?    
                 }
                 else{ ?>
-                    <td class="ticket-tr" id=""><p class="green"><?echo $table;$table++;?></p></td>
+                    <td class="ticket-tr" id=""><a onclick = formPost(<?echo $table?>) class="green" id="<?echo $table?>"><?echo $table;$table++;?></p></td>
                 <?
                 } 
                 
             }?> 
         </table>
         <?}?>
+        <p class="hall"><?echo "Зал $hall_number"?></p>
     </div>
     <form class="buy" action="action" method="get">
         <input type="number" style = " display: none"name="session_id" value="<?echo $id;?>" readonly>
-        <p>Место </p> <input type="number" name="number">
-        <input type="submit" value="Купить" class='validateBtn'>
+        <p>Место </p> <input type="number" name="number" id="number_id">
+        <input type="submit" value="Купить" class='btn-buy'>
     </form>
 
 <footer>

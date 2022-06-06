@@ -1,3 +1,10 @@
+<?
+$value = session()->get('admin');
+if($value != 'Kodein'){
+    header("Location: {$_SERVER['HTTP_REFERER']}");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -9,6 +16,7 @@
     <title>New Cinema</title>
 </head>
 <?
+
 if(DB::connection()) {
     $movies = DB::select('select * from movie');
     $sessions = DB::table('session')
@@ -26,7 +34,10 @@ if(DB::connection()) {
     <header>
         <div class="navig">
             <h1 class="head-text">New cinema</h1>
-            <a href="{{url('/admin/vhod/root/report')}}" class="entry" >Отчет</a>
+            <div class="vhod">
+                <a href="{{url('/admin/vhod/root/report')}}" class="entry" >Отчет</a>
+                <a href="{{url('/admin')}}" class="entry" >Выход</a>
+            </div>            
         </div>
     </header>   
     <hr>
@@ -40,7 +51,7 @@ if(DB::connection()) {
         <?php  $count = 1; foreach ($movies as $movie) { ?>
         <div class="admin-form">
 
-                    <p class="admin-p"><?php  echo $count?></p>
+                    <p class="admin-p"><?php if($count<10) echo "0$count"; else echo $count;?></p>
                     <p class="admin-text">Название:</p>
                     <p class="admin-p"><?php  echo $movie->film_name?></p>
                     <p class="admin-text">Жанр:</p>
@@ -64,17 +75,19 @@ if(DB::connection()) {
     <form class="delete-form" action="{{url("/film")}}">
         <p class="delete-p">Фильм</p>
         <input type="text" name="film">
-        <input type="submit" value="Удалить">
-        <input type="submit" name="" id="" value="Добавить">  
+        <input type="submit" value="Удалить" class="delete-btn">
     </form>
     <div class="admin">
         <p>Сеанс</p>
         <?php  $count = 1; foreach ($sessions as $session) { ?>
         <div class="admin-form">
 
-                    <p class="admin-p"><?php  echo $count?></p>
+                    <p class="admin-p"><?php if($count<10) echo "0$count"; else echo $count;?></p>
+                    <p class="admin-p" style="color: orange">ID</p>
                     <p class="admin-p"><?php  echo $session->session_id?></p>
+                    <p class="admin-text">Фильм:</p>
                     <p class="admin-p"><?php  echo $session->film_name?></p>
+                    <p class="admin-text">Дата:</p>
                     <p class="admin-p"><?php  echo $session->session_date?></p>         
                 <?php $count++;
            ?>
@@ -83,19 +96,18 @@ if(DB::connection()) {
     }    
         ?>
     </div>
-    <form class="delete-form" action="{{url("/session")}}">
+    <form class="delete-form" action="{{url("/del-session")}}">
         <p class="delete-p">ID</p>
         <input type="text" name="session">
-        <input type="submit" value="Удалить">
-        <input type="submit" name="" id="" value="Добавить">  
+        <input type="submit" value="Удалить" class="delete-btn"> 
     </form>
 
     <div class="admin">
         <p>Билет</p>
         <?php  $count = 1; foreach ($tickets as $ticket) { ?>
             <div class="admin-form"> 
-                <p class="admin-p"><?php  echo $count?></p>
-                <p class="admin-p">ID</p>
+                <p class="admin-p"><?php if($count<10) echo "0$count"; else echo $count;?></p>
+                <p class="admin-p" style="color: orange">ID</p>
                 <p class="admin-p"><?php  echo $ticket->ticket_id?></p>
                 <p class="admin-text">Дата:</p>
                 <p class="admin-p"><?php  echo $ticket->session_date?></p>
@@ -113,8 +125,12 @@ if(DB::connection()) {
     <form class="delete-form" action="{{url("/ticket-d")}}">
         <p class="delete-p">ID</p>
         <input type="text" name="ticket">
-        <input type="submit" value="Удалить">
-        <input type="submit" name="" id="" value="Добавить">  
+        <input type="submit" value="Удалить" class="delete-btn"> 
+    </form>
+    <form class="delete-form" action="{{url("/ticket-bron")}}">
+        <p class="delete-p">ID</p>
+        <input type="text" name="ticket">
+        <input type="submit" name="" id="" value="Снять бронь" class="update-btn">  
     </form>
 
  

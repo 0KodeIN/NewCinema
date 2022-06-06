@@ -18,7 +18,7 @@ if(DB::connection()) {
             <a href="" class="def"><?php  echo $res->film_name?></a>
             <img src=<?php echo "/img/$res->film_photo "?> class = "file_img" alt="">
             <div class="text-ticket">
-                <p class=""><?php echo $res->film_cost?></p>
+                <p class=""><?php echo "$res->film_cost Р"?></p>
                 <a href="/detail/<? echo $res->id_film?>/") }}" id =<?php  echo $res->id_film?> target="_blank" class = "ticket-btn">Купить</a>
             </div>           
         </div>

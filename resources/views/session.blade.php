@@ -26,4 +26,7 @@
         <div class="input-form" id="enter">
             <input type="submit" value="Добавить" class='validateBtn'>
         </div>
+        <div class="input-form" id="enter">
+            <a href={{url('/admin/vhod/root')}}>Назад</a>
+        </div>
     </form>
